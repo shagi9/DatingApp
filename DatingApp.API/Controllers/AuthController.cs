@@ -58,12 +58,15 @@ namespace DatingApp.API.Controllers
                 new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
                 new Claim(ClaimTypes.Name, userFromRepo.Username)
             };
-
+            
+            // Creating a security key
             var key = new SymmetricSecurityKey(Encoding.UTF8
                 .GetBytes(_config.GetSection("AppSettings:Token").Value));
 
+            // using this key as part of signingcredentials and encrypt key with hash algorithm
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
+            // create a token descriptor
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
