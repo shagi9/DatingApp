@@ -8,24 +8,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
   registerMode = false;
-  values: any;
 
   constructor(private http:HttpClient) { }
 
-  ngOnInit() {
-    this.getValues();
-  }
+  ngOnInit() { }
 
   registerToggle() {
     this.registerMode = true;
-  }
-
-  getValues() {
-    this.http.get('http://localhost:5000/api/weatherforecast').subscribe(res => {
-      this.values = res;
-    }, error => {
-      console.log(error);
-    });
   }
 
   cancelRegisterMode(registerMode: boolean){
