@@ -5,11 +5,11 @@ import {FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { from } from 'rxjs';
 import { NavComponent } from './nav/nav/nav.component';
 import { AuthService } from './services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { ErrorIntercaptorProvider } from './services/error.interceptor';
 
 @NgModule({
    declarations: [
@@ -25,7 +25,8 @@ import { RegisterComponent } from './register/register.component';
       FormsModule
    ],
    providers: [
-      AuthService
+      AuthService,
+      ErrorIntercaptorProvider 
    ],
    bootstrap: [
       AppComponent
