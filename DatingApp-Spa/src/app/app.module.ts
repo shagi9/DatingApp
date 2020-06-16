@@ -8,11 +8,11 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
-import { AuthService } from './services/auth.service';
+import { AuthService } from './services/auth/auth.service';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
-import { ErrorIntercaptorProvider } from './services/error.interceptor';
-import { AlertifyService } from './services/alertify.service';
+import { ErrorIntercaptorProvider } from './helpers/error.interceptor';
+import { AlertifyService } from './services/alertify/alertify.service';
 import { MemberListComponent } from './components/member-list/member-list.component';
 import { ListsComponent } from './components/lists/lists.component';
 import { MessagesComponent } from './components/messages/messages.component';
