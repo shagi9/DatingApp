@@ -13,12 +13,13 @@ import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ErrorIntercaptorProvider } from './helpers/error.interceptor';
 import { AlertifyService } from './services/alertify/alertify.service';
-import { MemberListComponent } from './components/member-list/member-list.component';
+import { MemberListComponent } from './components/members/member-list/member-list.component';
 import { ListsComponent } from './components/lists/lists.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { appRoutes } from './routes';
 import { AuthGuard } from './guards/auth.guard';
 import { UserService } from './services/user/user.service';
+import { MemberCardComponent } from './components/members/member-card/member-card.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { UserService } from './services/user/user.service';
       MemberListComponent,
       ListsComponent,
       MessagesComponent,
-      HomeComponent
+      HomeComponent,
+      MemberCardComponent
    ],
    imports: [
       BrowserModule,
