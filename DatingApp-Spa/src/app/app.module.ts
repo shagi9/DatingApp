@@ -2,13 +2,18 @@ import { BrowserModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angu
 import { NgModule, Injectable } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// ngx-bootstrap
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
-import { JwtModule } from '@auth0/angular-jwt';
 import { NgxGalleryModule } from 'ngx-gallery-9';
 
+// auth
+import { JwtModule } from '@auth0/angular-jwt';
+
+// components
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
 import { AuthService } from './services/auth/auth.service';
@@ -19,15 +24,25 @@ import { AlertifyService } from './services/alertify/alertify.service';
 import { MemberListComponent } from './components/members/member-list/member-list.component';
 import { ListsComponent } from './components/lists/lists.component';
 import { MessagesComponent } from './components/messages/messages.component';
-import { appRoutes } from './routes';
-import { AuthGuard } from './guards/auth.guard';
-import { UserService } from './services/user/user.service';
 import { MemberCardComponent } from './components/members/member-card/member-card.component';
 import { MemberDetailComponent } from './components/members/member-detail/member-detail.component';
+import { MemberEditComponent } from './components/members/member-edit/member-edit.component';
+
+// route
+import { appRoutes } from './routes';
+
+// guards
+import { AuthGuard } from './guards/auth.guard';
+import { PreventUnsavedChanges } from './guards/prevent-unsave-changes.guard';
+
+// services
+import { UserService } from './services/user/user.service';
+
+// resolvers
 import { MemberDetailResolver } from './resolvers/member-detail.resolver';
 import { MemberListResolver } from './resolvers/member-list.resolver';
-import { MemberEditComponent } from './components/members/member-edit/member-edit.component';
 import { MemberEditResolver } from './resolvers/member-edit.resolver';
+
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -81,6 +96,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
       MemberDetailResolver,
       MemberListResolver,
       MemberEditResolver,
+      PreventUnsavedChanges,
       { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
    ],
    bootstrap: [
