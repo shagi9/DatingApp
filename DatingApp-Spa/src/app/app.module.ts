@@ -42,6 +42,7 @@ import { UserService } from './services/user/user.service';
 import { MemberDetailResolver } from './resolvers/member-detail.resolver';
 import { MemberListResolver } from './resolvers/member-list.resolver';
 import { MemberEditResolver } from './resolvers/member-edit.resolver';
+import { PhotoEditorComponent } from './components/members/photo-editor/photo-editor.component';
 
 
 export function tokenGetter() {
@@ -68,7 +69,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
       HomeComponent,
       MemberCardComponent,
       MemberDetailComponent,
-      MemberEditComponent
+      MemberEditComponent,
+      PhotoEditorComponent
    ],
    imports: [
       BrowserModule,
